@@ -8,7 +8,11 @@ Is =  zeros(1,10);
 K_dat = zeros(1,10);
 K_dat(1,1) = 1;
 Is(1,1) = Im;
-for N=2:10
+
+N_sim = 1;
+N_max = 20;
+
+for N=2:N_max
     
 d = h;
 if(mod(N,2) == 0)
@@ -31,11 +35,14 @@ else
     end
 end
 
-N
+N;
 Il = 2*m*Il;
 Il_dat(1,N) = Il;
 Is(1,N) = Il_dat(1,N) + N*Im;
-K_gain = (N * Im + Il)/(N*Im)
+K_gain = (N * Im + Il)/(N*Im);
 K_dat(1,N) = K_gain;
 end
 
+K_gain = K_dat(N_sim);
+N = N_sim;
+Is_sim = Is(N);
