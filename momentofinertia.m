@@ -9,8 +9,8 @@ K_dat = zeros(1,10);
 K_dat(1,1) = 1;
 Is(1,1) = Im;
 
-N_sim = 1;
-N_max = 20;
+N_sim = 2;
+N_max = 10;
 
 for N=2:N_max
     
@@ -46,3 +46,7 @@ end
 K_gain = K_dat(N_sim);
 N = N_sim;
 Is_sim = Is(N);
+Ixx = Is_sim;%*1.2;
+Iyy = Is_sim;%*0.98;
+Izz = N*0.026;
+Is_sim_z = Izz;
